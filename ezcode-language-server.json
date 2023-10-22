@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "if": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The 'if' statement in EZCode."
+                }
+            }
+        },
+        "loop": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The 'loop' statement in EZCode."
+                }
+            }
+        },
+        "else": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The 'else' statement in EZCode."
+                }
+            }
+        }
+    }
+}

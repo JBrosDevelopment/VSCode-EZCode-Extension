@@ -1,0 +1,110 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "EZCode",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#lineComments"
+        },
+        {
+            "include": "#specialCharacters"
+        },
+        {
+            "include": "#hashtags"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#variableName"
+        },
+        {
+            "include": "#numberValues"
+        },
+		{
+			"include": "#additional"
+		},
+		{
+			"include": "#strings"
+		}
+    ],
+    "repository": {
+		"strings": {
+			"name": "string.quoted.double.ezcode",
+			"match": "print|await|bringto|clear|destroy|event|file|input|intersects|messagebox|stop"
+		},
+        "additional": {
+            "patterns": [
+                {
+                    "name": "keyword.control.ezcode",
+                    "match": "\\b(if|loop|else)\\b"
+				}
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.ezcode",
+                    "match": "\\b(if|loop|else|DEVPORTAL|method|endmethod)\\b"
+                },
+				{
+					"name": "keyword.additional.ezcode",
+					"match": "var|shape|textbox|label|button|group|list|global|window|sound"
+				}
+            ]
+        },
+        "lineComments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.ezcode",
+                    "match": "//.*$"
+                }
+            ]
+        },
+        "specialCharacters": {
+            "patterns": [
+                {
+                    "name": "keyword.extra.ezcode",
+                    "match": "->|\\||:|=>"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+					"include": "#numberValues"
+                },
+                {
+					"include": "#variableName"
+                }
+            ]
+        },
+        "numberValues": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.ezcode",
+                    "match": "\\b\\d+\\b"
+                }
+            ]
+        },
+        "variableName": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.ezcode",
+                    "match": "\\b\\d+\\b"
+                }
+            ]
+        },
+		"hastags": {
+			"patterns": [
+				{
+					"name": "keyword.control.ezcode",
+					"match": "#.*$"
+				}
+			]
+		}
+    },
+    "scopeName": "source.ezcode"
+}

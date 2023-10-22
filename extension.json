@@ -1,0 +1,27 @@
+{
+    "name": "ezcode-language",
+    "displayName": "EZCode Language Support",
+    "description": "Language support for EZCode",
+    "version": "1.0.0",
+    "publisher": "JBros Development",
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "categories": ["Languages"],
+    "contributes": {
+        "languages": [
+            {
+                "id": "ezcode",
+                "aliases": ["EZCode", "ezcode"],
+                "extensions": [".ezcode"]
+            }
+        ],
+        "grammars": [
+            {
+                "language": "ezcode",
+                "scopeName": "source.ezcode",
+                "path": "./syntax/ezcode.tmLanguage.json"
+            }
+        ]
+    }
+}

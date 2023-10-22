@@ -1,0 +1,8 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": ["*.ezcode"],
+            "url": "ezcode-language-server.json"
+        }
+    ]
+}
