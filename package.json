@@ -9,6 +9,7 @@
   "categories": [
     "Programming Languages"
   ],
+  "icon": "./icons/EZCode_Logo.png",
   "contributes": {
     "languages": [{
       "id": "ezcode",

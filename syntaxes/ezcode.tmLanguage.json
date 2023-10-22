@@ -66,8 +66,8 @@
         "specialCharacters": {
             "patterns": [
                 {
-                    "name": "keyword.extra.ezcode",
-                    "match": "->|\\||:|=>"
+                    "name": "constant.character.ezcode",
+                    "match": "->|\\||:|=>|\\n"
                 }
             ]
         },
