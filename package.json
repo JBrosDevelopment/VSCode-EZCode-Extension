@@ -19,11 +19,22 @@
       "aliases": ["EZCode", "ezcode"],
       "extensions": [".ezcode"],
       "configuration": "./language-configuration.json"
+    },
+    {
+      "id": "ezproj",
+      "aliases": ["EZProj", "ezproj"],
+      "extensions": [".ezproj"],
+      "configuration": "./language-configuration.json"
     }],
     "grammars": [{
       "language": "ezcode",
       "scopeName": "source.ezcode",
       "path": "./syntaxes/ezcode.tmLanguage.json"
+    },
+    {
+      "language": "ezproj",
+      "scopeName": "source.ezproj",
+      "path": "./syntaxes/ezproj.tmLanguage.json"
     }]
   }
 }

@@ -1,0 +1,39 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "ezproj",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#lineComments"
+        },
+		{
+			"include": "#strings"
+		}
+    ],
+    "repository": {
+		"strings": {
+			"name": "string.quoted.double.ezproj",
+			"begin": "\"",
+            "end": "\""
+		},
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.additional.ezproj",
+                    "match": "include|exclude|startup|name|icon|fileinerror|showbuild|isvisual|closeonend|debug|window|clearconsole"
+                }
+            ]
+        },
+        "lineComments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.ezproj",
+                    "match": "//.*$"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.ezproj"
+}

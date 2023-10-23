@@ -21,9 +21,6 @@
             "include": "#numberValues"
         },
 		{
-			"include": "#additional"
-		},
-		{
 			"include": "#strings"
 		}
     ],
@@ -32,14 +29,6 @@
 			"name": "string.quoted.double.ezcode",
 			"match": "#.*$|print|await|bringto|clear|destroy|event|file|input|intersects|messagebox|stop"
 		},
-        "additional": {
-            "patterns": [
-                {
-                    "name": "keyword.control.ezcode",
-                    "match": "\\b(if|loop|else)\\b"
-				}
-            ]
-        },
         "keywords": {
             "patterns": [
                 {

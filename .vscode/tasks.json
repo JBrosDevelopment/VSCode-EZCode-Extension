@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "EZCode Open Application",
+            "type": "shell",
+            "command": "Start-Process C:\\Program Files\\EZCode\\EZCode-Player v2.0.0_Beta\\EZCodePlayer.exe", 
+            "args": ["${file}"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
