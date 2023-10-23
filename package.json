@@ -9,7 +9,10 @@
   "categories": [
     "Programming Languages"
   ],
-  "icon": "./icons/EZCode_Logo.png",
+  "repository": {
+    "url": "https://github.com/JBrosDevelopment/VSCode-EZCode-Extension.git"
+  },
+  "icon": "icons/EZCode_Logo.png",
   "contributes": {
     "languages": [{
       "id": "ezcode",
