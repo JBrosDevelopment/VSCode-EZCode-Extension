@@ -12,9 +12,6 @@
             "include": "#specialCharacters"
         },
         {
-            "include": "#hashtags"
-        },
-        {
             "include": "#variables"
         },
         {
@@ -33,7 +30,7 @@
     "repository": {
 		"strings": {
 			"name": "string.quoted.double.ezcode",
-			"match": "print|await|bringto|clear|destroy|event|file|input|intersects|messagebox|stop"
+			"match": "#.*$|print|await|bringto|clear|destroy|event|file|input|intersects|messagebox|stop"
 		},
         "additional": {
             "patterns": [
@@ -96,15 +93,7 @@
                     "match": "\\b\\d+\\b"
                 }
             ]
-        },
-		"hastags": {
-			"patterns": [
-				{
-					"name": "keyword.control.ezcode",
-					"match": "#.*$"
-				}
-			]
-		}
+        }
     },
     "scopeName": "source.ezcode"
 }
