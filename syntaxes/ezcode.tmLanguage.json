@@ -30,7 +30,7 @@
             "patterns": [
                 {
                     "name": "keyword.control.ezcode",
-                    "match": "\\b(if|loop|else|explicit|explicit|watch|params|return|try|fail)\\b"
+                    "match": "\\b(if|loop|else|explicit|insideof|watch|params|type|return|try|fail)\\b"
                 },
                 {
                     "name": "keyword.additional.ezcode",
@@ -65,8 +65,8 @@
         "at": {
             "patterns": [
                 {
-                    "name": "constant.numeric.ezcode",
-                    "match": "\\b\\d+\\b"
+                    "name": "variable.name",
+                    "match": "@\\w+"
                 }
             ]
         }

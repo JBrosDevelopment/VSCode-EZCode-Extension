@@ -39,8 +39,8 @@ static ontop class PROGRAM {
 // print TEXT
 
 semi class color {
-    explicit watch [@str:t] => FromText : t
-    explicit watch [@int:r;@int:g;@int:b] => FromRGB : r, g, b
+    explicit watch ""[(@str:t)]"" => FromText : t 
+    explicit watch ""[(@int:r);(@int:g);(@int:b)]"" => FromRGB : r, g, b
     var R 0
     var B 0
     var G 0
@@ -105,11 +105,11 @@ static class file {
 // file read C:/file/path.txt
 
 class list {
-    explicit watch [vals, *] => set : vals
-    explicit params = set : params
+    explicit watch ""[(*:,(vals))]"" => set : vals
+    explicit params ""param*"" => set : param
     var Value \!
-    method set : params* {
-        Value = EZCODE::EZHELP::LIST::JOIN : params
+    method set : param* {
+        Value = EZCODE::EZHELP::LIST::JOIN : param
     }
     method get => @str {
         return Value
@@ -117,8 +117,8 @@ class list {
     method get => @list {
         return EZCODE::EZHELP::LIST::SPLIT : Value
     }
-    method add : params* {
-        Value + EZCODE::EZHELP::LIST::JOIN : params
+    method add : param* {
+        Value + EZCODE::EZHELP::LIST::JOIN : param
     }
     method replace : old, new {
         try {
@@ -149,10 +149,10 @@ class list {
 // print 'name'
 
 container control {
-    class button,
-    class textbox,
-    class shape,
-    class label
+    button,
+    textbox,
+    shape,
+    label
 }
 class button : {
     explicit insideof = @control
@@ -203,9 +203,12 @@ static class input {
 // var val => input iskeydown A
 
 class error {
-    explicit params = init : @str, @str
+    explicit params ""@str:e, @str:m"" => init : e, m
     var Id cx00 // ex[INT] for built in EZCode Exceptions and cx[INT] for Custom Exceptions
     var Message \!
+    method get => @str {
+        return Message
+    }
     method init : @str:id, @str:message {
         Id = id
         Message = message
@@ -215,8 +218,93 @@ class error {
 // Accessed by
 // error new : Id:cx00, Message:Error Occured
 
-static class thread {
-    
+semi class thread {
+    explicit watch ""[str=(@int:t)(~hidden:(object:m))]"" => setmethod : t, m
+    var strand 1
+    var object null
+    method setmethod : @int:str, obj {
+        strand = str
+        object = EZCODE::EZHELP::OBJECTPLACE : obj
+        EZCODE::EZHELP::THREAD::SETMETHOD : strand, object
+    }
+    static method setnext : @int:str {
+        EZCODE::EZHELP::THREAD::SETNEXT : str
+    }
+    static method setall : ? @str:thread1, @str:thread2, @str:thread3 {
+        // Epected each parameter to be either, 'method', 'main', 'all', or 'none'
+        if thread1 = null : thread1 = none
+        if thread2 = null : thread2 = none
+        if thread3 = null : thread3 = none
+        EZCODE::EZHELP::THREAD::SET : thread1, thread2, thread3
+    }
+}
+// Accessed by
+// thread setall : method, main
+// thread new : strand:1
+// METHODNAME : prop:val, [..last_prop..], strand:[str=1]
+
+semi class _Int {
+    var Value null
+    explicit type => EZCODE::EZHELP::INT
+    static method _sum : val1, val2 => val {
+        return EZCODE::EZHELP::NUM::SUM : val1, val2
+    }
+    static method _dif : val1, val2 => val {
+        return EZCODE::EZHELP::NUM::DIFFERENCE : val1, val2
+    }
+    static method _prod : val1, val2 => val {
+        return EZCODE::EZHELP::NUM::PRODUCT : val1, val2
+    }
+    static method _quot : val1, val2 => val {
+        return EZCODE::EZHELP::NUM::QUOTIENT : val1, val2
+    }
+    static method _pow : val1, val2 => val {
+        return EZCODE::EZHELP::NUM::POWER : val1, val2
+    }
+    method Add : val {
+        Value = (_sum : Value, val)
+    }
+    method Sub : val {
+        Value = (_dif : Value, val)
+    }
+    method Mult : val {
+        Value = (_prod : Value, val)
+    }
+    method Div : val {
+        Value = (_quot : Value, val)
+    }
+    method Pow : val {
+        Value = (_pow : Value, val)
+    }
+    static method MAX => val {
+        return EZCODE::EZHELP::INT::MAX
+    }
+}
+class int {
+    explicit watch ""@_Int:v"" => set : v
+    explicit params ""@_Int:v"" => set : v
+    _Int _value new : Value:0
+    var value 0
+    nocol method + : @_Int:val {
+        _Int Add : val
+        value = _Int
+    }
+    nocol method - : @_Int:val {
+        _Int Sub : val
+        value = _Int
+    }
+    nocol method * : @_Int:val {
+        _Int Mult : val
+        value = _Int
+    }
+    nocol method / : @_Int:val {
+        _Int Div : val
+        value = _Int
+    }
+    nocol method ^ : @_Int:val {
+        _Int Pow : val
+        value = _Int
+    }
 }
 
 // More classes and methods will be in the final version. For now though, this is it.
