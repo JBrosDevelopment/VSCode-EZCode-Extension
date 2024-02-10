@@ -9,33 +9,36 @@
             "include": "#lineComments"
         },
         {
-            "include": "#strings"
+            "include": "#specialCharacters"
         },
         {
-            "include": "#specialCharacters"
+            "include": "#variables"
+        },
+        {
+            "include": "#variableName"
         },
         {
             "include": "#numberValues"
         },
-        {
-            "include": "#at"
-        }
+		{
+			"include": "#strings"
+		}
     ],
     "repository": {
-        "strings": {
-            "name": "string.quoted.double.ezcode",
-            "match": "\"\"(.*?)\"\""
-        },
+		"strings": {
+			"name": "string.quoted.double.ezcode",
+			"match": "#.*$|print|await|bringto|clear|destroy|event|file|input|intersects|messagebox|stop"
+		},
         "keywords": {
             "patterns": [
                 {
                     "name": "keyword.control.ezcode",
-                    "match": "\\b(if|loop|else|explicit|explicit|watch|params|return|try|fail)\\b"
+                    "match": "\\b(if|loop|else|DEVPORTAL|method|endmethod)\\b"
                 },
-                {
-                    "name": "keyword.additional.ezcode",
-                    "match": "\\b(var|class|semi|ontop|static|static|method|nocol|container|null|true|false|True|False)\\b"
-                }
+				{
+					"name": "keyword.additional.ezcode",
+					"match": "var|shape|textbox|label|button|group|list|global|window|sound"
+				}
             ]
         },
         "lineComments": {
@@ -50,7 +53,17 @@
             "patterns": [
                 {
                     "name": "constant.character.ezcode",
-                    "match": "->|\\||:|=>|\\n|\\$|\\&|\\c|\\\"|\\;"
+                    "match": "->|\\||:|=>|\\n"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+					"include": "#numberValues"
+                },
+                {
+					"include": "#variableName"
                 }
             ]
         },
@@ -62,7 +75,7 @@
                 }
             ]
         },
-        "at": {
+        "variableName": {
             "patterns": [
                 {
                     "name": "constant.numeric.ezcode",
