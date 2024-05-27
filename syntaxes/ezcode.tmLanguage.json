@@ -30,11 +30,11 @@
             "patterns": [
                 {
                     "name": "keyword.control.ezcode",
-                    "match": "\\b(if|loop|else|explicit|insideof|watch|params|type|return|try|fail)\\b"
+                    "match": "\\b(if|loop|else|dispose|explicit|watch|params|alias|return|try|fail|throw|make|typeof|undefined|break|yield|runexec)\\b"
                 },
                 {
                     "name": "keyword.additional.ezcode",
-                    "match": "\\b(var|class|semi|ontop|static|static|method|nocol|container|null|true|false|True|False)\\b"
+                    "match": "\\b(class|method|nocol| get | null| true| false| True| False|global| and| not| or| new )\\b"
                 }
             ]
         },
@@ -43,9 +43,14 @@
                 {
                     "name": "comment.line.double-slash.ezcode",
                     "match": "//.*$"
+                },
+                {
+                    "name": "comment.block.ezcode",
+                    "begin": "/\\*",
+                    "end": "\\*/"
                 }
             ]
-        },
+        },        
         "specialCharacters": {
             "patterns": [
                 {
