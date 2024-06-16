@@ -30,11 +30,11 @@
             "patterns": [
                 {
                     "name": "keyword.control.ezcode",
-                    "match": "\\b(if|loop|else|dispose|explicit|watch|params|alias|return|try|fail|throw|make|typeof|undefined|break|yield|runexec)\\b"
+                    "match": "\\b(if|loop|elif|else|dispose|explicit|watch|params|alias|return|try|fail|throw|make|typeof|undefined|break|yield|runexec|include|exclude)\\b"
                 },
                 {
                     "name": "keyword.additional.ezcode",
-                    "match": "\\b(class|method|nocol| get | null| true| false| True| False|global| and| not| or| new )\\b"
+                    "match": "(?!-)\\b(class|method|nocol|get|null|true|false|True|False|global|and|not|or|new)\\b(?!-)"
                 }
             ]
         },

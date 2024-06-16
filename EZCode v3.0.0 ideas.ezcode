@@ -13,6 +13,8 @@
 // @type -> requires value to be a certain type
 // EZCODE::EZHELP::METHOD -> referencing C# method that can't be created by EZCode
 
+
+
 static ontop class PROGRAM { 
     nocol method print : @str:text {
         EZCODE::EZHELP::PRINT : text
